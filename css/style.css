@@ -710,7 +710,31 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ===========================
-   RESPONSIVE — HOMEPAGE
+   RESPONSIVE — TABLET (max-width: 1024px)
+   =========================== */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-image img,
+  .hero-image-placeholder {
+    width: 180px;
+    height: 180px;
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+/* ===========================
+   RESPONSIVE — MOBILE (max-width: 768px)
    =========================== */
 @media (max-width: 768px) {
   .navbar-links {
@@ -721,34 +745,124 @@ h3 { font-size: 1.25rem; }
     display: flex;
   }
 
+  .hero {
+    padding: 48px 0;
+  }
+
   .hero-grid {
     flex-direction: column-reverse;
+    align-items: center;
     text-align: center;
+    gap: 24px;
   }
 
   .hero-buttons {
     justify-content: center;
   }
 
+  .hero-image img,
+  .hero-image-placeholder {
+    width: 160px;
+    height: 160px;
+  }
+
+  .section-padding {
+    padding: 48px 0;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
   .cards-row {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .steps-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .step {
+    max-width: 100%;
   }
 
   .testimonial-grid {
     grid-template-columns: 1fr;
   }
 
-  .steps-row {
+  .cta-buttons {
     flex-direction: column;
     align-items: center;
-  }
-
-  .step-arrow {
-    transform: rotate(90deg);
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+    text-align: center;
+  }
+
+  .bio-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bio-photo {
+    width: 180px;
+    height: 220px;
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .studio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-block-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prima-visita-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
+   RESPONSIVE — SMALL MOBILE (max-width: 480px)
+   =========================== */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .prima-visita-grid {
+    grid-template-columns: 1fr;
   }
 }
