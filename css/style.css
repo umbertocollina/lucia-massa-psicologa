@@ -202,6 +202,10 @@ textarea:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .fade-in {
     opacity: 1;
     transform: none;
@@ -948,7 +952,7 @@ textarea:focus-visible {
   flex-shrink: 0;
 }
 
-.service-block-text h3 {
+.service-block-text h2 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
@@ -1224,12 +1228,12 @@ textarea:focus-visible {
   transition: border-color var(--transition);
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(196, 149, 106, 0.15);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .form-group textarea {
@@ -1386,6 +1390,10 @@ textarea:focus-visible {
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-right {
+    order: -1;
   }
 
   .prima-visita-grid {
