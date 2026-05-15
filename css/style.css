@@ -1,0 +1,446 @@
+/* ===========================
+   CSS RESET
+   =========================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================
+   CUSTOM PROPERTIES
+   =========================== */
+:root {
+  --text-dark: #5a3e2b;
+  --text-mid: #6b4c3b;
+  --text-light: #8b7355;
+  --accent: #c4956a;
+  --accent-hover: #b8856a;
+  --bg-primary: #faf6f1;
+  --bg-secondary: #f5e6d3;
+  --bg-tertiary: #e8d5c4;
+  --bg-warm: #d4b896;
+  --dark-bg: #5a3e2b;
+  --dark-mid: #6b4c3b;
+  --whatsapp: #25d366;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 50%;
+  --transition: 0.3s ease;
+  --max-width: 1200px;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===========================
+   BASE
+   =========================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===========================
+   TYPOGRAPHY
+   =========================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+.section-label {
+  font-size: 0.625rem;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* ===========================
+   LAYOUT
+   =========================== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-padding {
+  padding: 70px 0;
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-mid);
+  border: 1.5px solid var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: var(--white);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1fb855;
+}
+
+/* ===========================
+   SKIP LINK
+   =========================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 8px 16px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===========================
+   SCROLL ANIMATIONS
+   =========================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===========================
+   NAVBAR
+   =========================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--bg-tertiary);
+  transition: box-shadow var(--transition);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.navbar-logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-mid);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  transition: color var(--transition);
+  position: relative;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--text-mid);
+  font-weight: 600;
+}
+
+.navbar-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent);
+  border-radius: 1px;
+}
+
+/* ===========================
+   HAMBURGER
+   =========================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-mid);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.hamburger.open span:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===========================
+   MOBILE MENU
+   =========================== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  z-index: 99;
+  padding: 80px 32px 32px;
+  transition: right var(--transition);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu a {
+  display: block;
+  font-size: 1.125rem;
+  color: var(--text-mid);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--bg-tertiary);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 98;
+}
+
+.mobile-overlay.open {
+  display: block;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+.footer {
+  background-color: var(--dark-bg);
+  color: var(--bg-warm);
+  padding: 48px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 32px;
+}
+
+.footer-brand h3 {
+  font-family: var(--font-heading);
+  color: var(--bg-secondary);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand p {
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--bg-warm);
+}
+
+.footer-nav h4,
+.footer-social h4 {
+  font-family: var(--font-heading);
+  color: var(--bg-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-nav a,
+.footer-social a {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--bg-warm);
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+
+.footer-nav a:hover,
+.footer-social a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--dark-mid);
+  padding: 16px 0;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.footer-bottom a {
+  color: var(--bg-warm);
+  transition: color var(--transition);
+}
+
+.footer-bottom a:hover {
+  color: var(--accent);
+}
+
+/* ===========================
+   PAGE HEADER
+   =========================== */
+.page-header {
+  background: linear-gradient(var(--bg-secondary), var(--bg-tertiary));
+  padding: 48px 0;
+  text-align: center;
+}
+
+/* ===========================
+   CTA SECTION
+   =========================== */
+.cta-section {
+  background: linear-gradient(var(--dark-mid), var(--dark-bg));
+  padding: 56px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-family: var(--font-heading);
+  color: var(--bg-secondary);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-section p {
+  color: var(--bg-warm);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
