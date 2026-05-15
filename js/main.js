@@ -30,6 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mobileMenu.classList.contains("open")) toggleMenu();
       });
     });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+        toggleMenu();
+      }
+    });
   }
 
   // ===== SCROLL FADE-IN =====
