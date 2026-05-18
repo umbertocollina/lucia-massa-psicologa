@@ -719,8 +719,19 @@ textarea:focus-visible {
 
 .fb-embed-wrapper {
   margin: 2rem auto 2.5rem;
+  max-width: 700px;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(90, 62, 43, 0.1);
   display: flex;
   justify-content: center;
+}
+
+.fb-embed-wrapper .fb-page,
+.fb-embed-wrapper .fb-page iframe,
+.fb-embed-wrapper .fb-page span {
+  width: 100% !important;
 }
 
 .social-cards {
